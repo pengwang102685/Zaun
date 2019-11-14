@@ -44,33 +44,33 @@
 		p{
 			font-size: .2.5rem
 		}
-	ul{
-		    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-style: normal;
-    text-decoration: none;
-    border: none;
-    color: #333;
-    font-weight: 400;
-    font-family: Microsoft Yahei;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-font-smoothing: antialiased;
-	}
-	ul li,ol li{
-		color: #666;
-		font-size: .25rem
-	}
-	ol{
-		padding-left: .2rem
-	}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			font-style: normal;
+			text-decoration: none;
+			border: none;
+			color: #333;
+			font-weight: 400;
+			font-family: Microsoft Yahei;
+			box-sizing: border-box;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-font-smoothing: antialiased;
+		}
+			ul li,ol li{
+				color: #666;
+				font-size: 0.25rem
+			}
+			ol{
+				padding-left: 0.2rem
+			}
 </style>
 <script>
 import elmHead from '../components/head'
 export default {
 	components:{
-		elmHead:elmHead
+		elmHead,
 	},
 }
 </script>

@@ -46,11 +46,9 @@ export default {
         localStorage.add_geohash=a.geohash
     },
     search() {
-      this.$axios
-        .get("http://elm.cangdu.org/v1/pois?type=nearby",{params:{
+      this.$axios.get("http://elm.cangdu.org/v1/pois?type=nearby",{params:{
             keyword:this.search_s
-        }})
-        .then(data => {
+        }}).then(data => {
           this.poisdata = data.data
         });
     }

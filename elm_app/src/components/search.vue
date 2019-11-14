@@ -29,8 +29,10 @@
         <li v-if="iptValue==''"></li>
         
           <!-- 搜索列表 -->
-        <merchant v-for="(i,index) in searchlist" @int="shop(i.id)"
-                  :key="index" @click="place(item)">
+					<div v-if="open">
+						抱歉，无搜索结果！
+					</div>
+        <merchant v-else v-for="(i,index) in searchlist" @int="shop(i.id)" :key="index" @click="place(item)">
           <template v-slot:left>
             <img :src="'https://elm.cangdu.org/img/'+i.image_path"
                 alt="">
@@ -65,7 +67,7 @@
                 <template name="send">￥{{i.float_minimum_order_amount}}起送</template> /
               </span>
               <span class="fee">
-                <template name="fee">{{i.piecewise_agent_fee.tips}}</template>
+                <template name="fee">{{i.piecewise_agent_fee}}</template>
               </span>
             </div>
           </template>
@@ -147,6 +149,7 @@ export default {
       // 搜索历史
       iptValueArray: [],
       type:'',
+			open:false
     }
   },
   created () {
@@ -176,14 +179,14 @@ export default {
         this.nulls = '输入为空！！！'
         this.searchlist = ''
       } else {
-        this.$http.get('https://elm.cangdu.org/v4/restaurants', {
-          params: {
-            geohash:'31.22967,121.4762',
-            keyword:this.iptValue
-          }
-        }).then((res) => {
-          console.log(res.body)
-          this.searchlist = res.body
+        this.$http.get('http://elm.cangdu.org/v4/restaurants?extras[]=restaurant_activity&geohash=31.22299,121.36025&keyword='+this.iptValue+'&type=search').then((data) => {
+          console.log(data.data)
+					if(data.data.message=="搜索餐馆数据失败"){
+						this.open=true
+					}else{
+						this.searchlist=data.data
+					}
+          // this.searchlist = res.body
         })
       }
       this.iptValueArray.unshift(this.iptValue)

@@ -46,8 +46,7 @@
         <h3>{{list.name}}</h3>
         <div>
           <h3>优惠信息</h3>
-          <p v-for="(i,index) in arr"
-             :key="index">
+          <p v-for="(i,index) in arr" :key="index">
             <span class="name">{{i.icon_name}}</span>
             <span>{{i.description}}</span>
             <span style="margin-left: .1rem;">(APP专享)</span>
@@ -57,7 +56,7 @@
           <h3>商家公告</h3>
           <p>{{list.promotion_info}}</p>
         </div>
-        <p @click="type=false">&#10006;</p>
+        <p style="text-align: center;" @click="type=false">&#10006;</p>
       </div>
       <div class="change_show"
            v-show="!type">
@@ -256,8 +255,7 @@
         <template v-slot:iconfont>
           <i class="iconfont" type="button" data-toggle="modal" data-target="#myModal">&#xe604;</i>
         </template>
-        <template v-slot:num
-                  v-if="g_num">
+        <template v-slot:num v-if="g_num">
           <div :class="{num_bg:price>0}"><span :class="{num:g_num}">{{hhh}}</span></div>
         </template>
         <template v-slot:price>￥{{price}}.00</template>

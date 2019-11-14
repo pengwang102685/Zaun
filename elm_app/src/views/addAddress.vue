@@ -92,8 +92,7 @@ export default {
   },
   methods: {
     determine() {
-      this.$axios
-        .post(
+      this.$axios.post(
           "https://elm.cangdu.org/v1/users/" + localStorage.uid + "/addresses",
           {
             user_id: localStorage.uid,
