@@ -76,30 +76,25 @@
               style="padding-left: .1rem;position: relative"
               @click="num1=index"
               :key="index">
-            <a :href="'#'+index">{{i.name}}</a>
+            <a :href="'#'+i.id" style="width: 100%;height: 100%;display: block;">{{i.name}}</a>
             <span v-show="i.num"
                   class="l_num">{{i.num}}</span>
           </li>
         </ul>
         <!-- 展示商品 -->
         <ul class="menu_right">
-          <li v-for="(i,index) in show_list"
-              :id="index"
-              :key="index">
-            <p class="tit"
-               style="position: relative">
+          <li v-for="(i,index) in show_list" :id="i.id" :key="index">
+            <p class="tit" style="position: relative">
               <span class="rexiao">{{i.name}}</span>
               <i style="margin-left: .2rem;">{{i.description}}</i>
-              <i @click="titType=!titType"
-                 style="margin-left: .9rem;font-size: .3rem;display: inline-block">···</i>
+              <i @click="titType=!titType" style="margin-left: .9rem;font-size: .3rem;display: inline-block">···</i>
               <span v-show="titType"
                     class="tit_name">
                 <span class="rexiao">{{i.name}}</span>
                 <i style="margin-left: .2rem;">{{i.description}}</i>
               </span>
             </p>
-            <div v-for="(j,idx) in i.foods"
-                 class="menu_detail_list"
+            <div v-for="(j,idx) in i.foods" class="menu_detail_list"
                  :key="idx">
               <div class="menu_detail_link">
                 <p class="menu_food_img">
@@ -254,10 +249,11 @@
                 :class="{shop_none:!g_num}">
         <template v-slot:iconfont>
           <i class="iconfont" type="button" data-toggle="modal" data-target="#myModal">&#xe604;</i>
+					
         </template>
         <template v-slot:num v-if="g_num">
           <div :class="{num_bg:price>0}"><span :class="{num:g_num}">{{hhh}}</span></div>
-        </template>
+        </template> 
         <template v-slot:price>￥{{price}}.00</template>
         <template v-slot:pick_up>
           <div :class="{pick_bg:g_num>0}">
@@ -268,7 +264,7 @@
         </template>
       </shopcart>
       <!-- 我的购物车 -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -291,7 +287,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+			
     </div>
   </div>
 </template>
@@ -563,7 +560,7 @@ export default {
         this.arr = res.data.activities
       })
     this.$axios('https://elm.cangdu.org/shopping/v2/menu?restaurant_id=' + this.id + '').then(res => {
-      // console.log(res)
+      console.log(res)
       this.isLoading = false
       this.show_list = res.data
       this.show_list.forEach(item => {
