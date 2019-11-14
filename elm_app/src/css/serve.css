@@ -1,0 +1,26 @@
+
+.tit{
+	display: flex
+}
+.items{
+	width: 50%;
+	text-align: center;
+	padding: .2rem;
+	border-bottom: .01rem solid gainsboro
+}
+.items:nth-of-type(1){
+	border-right: .01rem solid gainsboro
+}
+.items dl img{
+	width: .6rem;
+	height: .6rem;
+}
+h2{
+	line-height: 1.2rem
+}
+.list li{
+	line-height: 1rem;
+	border-top: .01rem solid gainsboro;
+	font-size: .25rem;
+	padding: 0 .2rem
+}

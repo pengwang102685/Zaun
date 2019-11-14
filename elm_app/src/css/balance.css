@@ -1,0 +1,62 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box
+}
+.contain{
+	padding-top: 1rem;
+}
+#contain{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 203;
+	min-height: 27rem;
+	background-color: #fff;
+}
+.header{
+	background-color: #3190e8;
+    position: fixed;
+    z-index: 100;
+	left: 0;
+	line-height: 1rem;
+	text-align: center;
+    top: 0;
+    width: 100%;
+    height: 1rem;
+}
+.nav{
+	padding: .2rem;
+    background-color: #3190e8;
+}
+.price{
+	padding: .1rem;
+	background: white;
+	border-radius: .06rem
+}
+.btns{
+	width: 100%;
+	height: 1rem;
+	line-height: 1rem;
+	background: #ccc;
+	color: white;
+	border-radius: .06rem;
+	text-align: center;
+}
+.jy{
+	font-size: .3rem;
+    color: #999;
+    line-height: 1rem;
+    padding-left: .1rem
+}
+.no_log{
+	text-align: center;
+    margin-top: .6rem
+}
+.no_log p{
+	margin-top: .2rem;
+    font-size: .4rem;
+    color: #666;
+}

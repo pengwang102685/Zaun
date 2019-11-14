@@ -1,0 +1,42 @@
+p{
+	font-size: .3rem;
+	color: black
+}
+.vip-item{
+	background: #fff;
+	padding: .1rem;
+	margin-bottom: .2rem;
+}
+.tits *{
+	font-size: .3rem;
+	line-height: .8rem;
+}
+.vip-logo dl{
+	display: flex;
+	margin: .1rem 0;
+}
+.vip-logo  dt{
+	padding: 0 .2rem
+}
+.vip-logo dd p{
+	font-size: .2rem
+}
+
+.vip-logo dd h5{
+	font-size: .25rem
+}
+.btn{
+	border: .025rem solid #f60;
+	border-radius: .2rem;
+	line-height: .6rem;
+	height: .6rem;
+	float: right;
+	width: 1.3rem;
+	margin: .15rem;
+    text-align: center;
+    font-size: .3rem;
+    color: #f60;
+}
+.tits p span{
+	color: gainsboro
+}
