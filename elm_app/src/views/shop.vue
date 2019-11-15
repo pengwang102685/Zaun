@@ -258,7 +258,7 @@
         <template v-slot:pick_up>
           <div :class="{pick_bg:g_num>0}">
             <router-link to='/about/confirmOrder'>
-              <span class="pick_up">{{price?'去结算':'还差￥20起送'}}</span>
+              <span class="pick_up" @click="one_shou(shopCart_each)">{{price?'去结算':'还差￥20起送'}}</span>
             </router-link>
           </div>
         </template>
@@ -316,8 +316,9 @@
     font-size: 0.3rem;
 }
 </style>
-<style scoped>
 
+
+<style scoped>
 .tag_list_ul li{
     font-size: .25rem;
     color: #6d7885;
@@ -394,6 +395,7 @@
 }
 </style>
 <script>
+	import {mapActions} from 'vuex'
 import shopbtn from '../components/shopbtn'
 import shopcart from '../views/shopcart'
 import Loading from '../components/loading'
@@ -444,6 +446,7 @@ export default {
     }
   },
   methods: {
+		...mapActions(['one_shou']),
     // 购物车加减
     g_jia(i,index){
       this.price=0

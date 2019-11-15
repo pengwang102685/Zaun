@@ -54,23 +54,29 @@
       </div>
     </div>
     <div class="detail">
-      <div class="detail_one">
-        <img src>
-        <span>效果演示</span>
-      </div>
       <div class="detail_two clearfix">
-        <span class="detail_two_l fl">123</span>
+        <!-- <span class="detail_two_l fl">123</span>
         <span class="detail_two_c fr">￥20</span>
-        <span class="detail_two_r fr red cuo">×</span>
+        <span class="detail_two_r fr red cuo">×</span> -->
+				<div v-for="(i,index) in shou_arr" class="modal_box" :key="index">
+				  <div class="modal_showbox">
+				    <span style="font-size: .3rem">{{i.name}}</span>
+						<span style="float: right;padding: 0;margin-right: .1rem;">
+				      <span>✖{{shou_arr[index].num}}</span>
+				    </span>
+						<div  class="modal_showbox" style="float: right;margin-right: .5rem;color: #f60">￥{{i.price*shou_arr[index].num}}</div>
+					</div>
+				  {{shou_arr[0]}}
+				</div>
       </div>
       <div class="detail_five">
-        <p>
+        <!-- <p>
           订单
           <span>￥7687</span>
-        </p>
+        </p> -->
         <p class="fr">
           待支付
-          <span>￥7687</span>
+          <span>￥{{shou_num}}</span>
         </p>
       </div>
     </div>
@@ -92,13 +98,13 @@
         </p>
       </router-link>
     </div>
-    <!-- <div class="footer" id="foot">
+    <div class="footer" id="foot">
       <div class="footer_l fl">
         待支付￥
         <span>7687</span>
       </div>
       <div class="footer_r fr" @click="confimInformation()">确认下单</div>
-    </div> -->
+    </div>
     <div v-show="show">
       <div class="cover" @click="notShow"></div>
       <div class="payToTop">
@@ -131,13 +137,18 @@
   </div>
 </template>
 <script>
+	import {mapGetters} from 'vuex'
 import elmHead from "../components/head";
 export default {
+	computed: {
+		...mapGetters(['shou_num','shou_arr',])
+	},
   components: {
     elmHead
   },
   data() {
     return {
+			num:0,
       isbtnlogin: false,
       // ff: '',
       covers: "", // cover
@@ -152,6 +163,9 @@ export default {
     };
   },
   created() {
+		// for(var i=0;i<shou_arr.length;i++){
+		// 	this.num+=i.price*shou_arr[index].num
+		// }
     this.sex=this.$store.state.order.orderSex
     console.log(this.$store.state.order)
     if (localStorage.user) {
@@ -184,6 +198,7 @@ export default {
     }
   },
   methods: {
+		
     PayWay_top(e) {
       this.show = !this.show;
 
@@ -334,6 +349,7 @@ header {
 .detail {
   background-color: white;
   margin-top: 0.2rem;
+	height: auto;
 }
 .detail_one,
 .detail_two,
@@ -362,7 +378,6 @@ header {
 .detail_two {
   padding: 0 0.2rem;
   vertical-align: middle;
-  height: 0.8rem;
   line-height: 0.8rem;
   margin-bottom: 0.1rem;
   font-size: 0.24rem;
